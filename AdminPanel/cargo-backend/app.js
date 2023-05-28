@@ -18,9 +18,9 @@ const dbConfig = require("./mongodb/dbConfig")
 mongoose.connect(`mongodb://${dbConfig.user}:${dbConfig.password}@${dbConfig.host}/${dbConfig.dbName}`);
 
 const userRouter = require('./routes/user');
-// const orderRouter = require('./routes/order');
-// const carRouter = require('./routes/car');
-// const commentRouter = require('./routes/comment');
+const orderRouter = require('./routes/order');
+const carRouter = require('./routes/car');
+const commentRouter = require('./routes/comment');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,9 +33,9 @@ app.post('/initData',async (req, res)=>{
 });
 
 userRouter(app);
-// orderRouter(app);
-// carRouter(app);
-// commentRouter(app);
+orderRouter(app);
+carRouter(app);
+commentRouter(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
