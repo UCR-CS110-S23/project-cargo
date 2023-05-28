@@ -30,7 +30,7 @@ pm2 start bin/www --name cargo-admin -f
 - Host: 173.254.240.202
 - Port: 27017
 - Username: cargo
-- Password: cs110cargo
+- Password: 
 - Database name: cargo
 
 ## Back-end API
