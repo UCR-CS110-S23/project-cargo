@@ -9,7 +9,7 @@ npm run build
 ```
 move the built files to back-end public/ folder.
 ```sh
-npm run install
+npm start
 ```
 
 ### Running instance on server
