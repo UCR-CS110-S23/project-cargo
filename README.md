@@ -9,12 +9,12 @@ npm run build
 ```
 move the built files to back-end public/ folder.
 ```sh
-npm run install
+npm start
 ```
 
 ### Running instance on server
 ```sh
-npm run install
+npm install
 npm install pm2 -g
 pm2 start bin/www --name cargo-admin -f
 ```
