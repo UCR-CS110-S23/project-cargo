@@ -5,9 +5,9 @@ const generateData = require("./dataGenerate/data-manage");
 const mongoose = require('mongoose');
 
 require("./mongodb/models/user");
-// require("./mongodb/models/order");
-// require("./mongodb/models/car");
-// require("./mongodb/models/comment");
+require("./mongodb/models/order");
+require("./mongodb/models/car");
+require("./mongodb/models/comment");
 
 
 const cors = require('cors')
