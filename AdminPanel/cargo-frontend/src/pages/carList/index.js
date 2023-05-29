@@ -13,7 +13,7 @@ const CarList = () => {
     // get car data
     async function getData() {
         try {
-            const response = await axios.get("http://localhost:3000/car/");
+            const response = await axios.get(`${window.location.protocol}//${window.location.host}:3000/car/`);
             setCars(lodash.get(response, "data.data"));
         } catch (error) {
             console.error(error);
@@ -21,7 +21,7 @@ const CarList = () => {
     }
     async function getUserData() {
         try {
-            const response = await axios.get("http://localhost:3000/user/");
+            const response = await axios.get(`${window.location.protocol}//${window.location.host}:3000/user/`);
             setUsers(lodash.get(response, "data.data"));
         } catch (error) {
             console.error(error);
@@ -55,10 +55,10 @@ const CarList = () => {
                 let response;
                 if (editingCarId) {
                     // edit car post
-                    response = await axios.post(`http://localhost:3000/car/${editingCarId}`, values);
+                    response = await axios.post(`${window.location.protocol}//${window.location.host}:3000/car/${editingCarId}`, values);
                 } else {
                     // add car post
-                    response = await axios.post("http://localhost:3000/car/", values);
+                    response = await axios.post(`${window.location.protocol}//${window.location.host}:3000/car/`, values);
                 }
                 await getData();
                 form.resetFields();
@@ -75,7 +75,7 @@ const CarList = () => {
     // delete car
     const deleteCar = async (_id) => {
         try {
-            await axios.delete(`http://localhost:3000/car/${_id}`);
+            await axios.delete(`${window.location.protocol}//${window.location.host}:3000/car/${_id}`);
             const updatedCars = cars.filter((car) => car._id !== _id);
             setCars(updatedCars);
         } catch (error) {

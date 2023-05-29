@@ -12,12 +12,12 @@ const CommentList = () => {
     const [form] = Form.useForm(); // form instance
 
     async function getUserData() {
-        axios.get("http://localhost:3000/user/").then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}:3000/user/`).then((res) => {
             setUsers(lodash.get(res, "data.data"))
         });
     }
     async function getCarData() {
-        axios.get("http://localhost:3000/car/").then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}:3000/car/`).then((res) => {
             setCars(lodash.get(res, "data.data"))
         });
     }
@@ -30,7 +30,7 @@ const CommentList = () => {
     // get comment data
     async function getData() {
         try {
-            const response = await axios.get('http://localhost:3000/comment/');
+            const response = await axios.get(`${window.location.protocol}//${window.location.host}:3000/comment/`);
             setComments(lodash.get(response, 'data.data'));
         } catch (error) {
             console.error(error);
@@ -54,7 +54,7 @@ const CommentList = () => {
             try {
                 if (editingComment) {
                     // update comment post
-                    await axios.post(`http://localhost:3000/comment/${editingComment._id}`, values);
+                    await axios.post(`${window.location.protocol}//${window.location.host}:3000/comment/${editingComment._id}`, values);
                     const updatedComments = comments.map((comment) =>
                         comment._id === editingComment._id ? { ...comment, ...values } : comment
                     );
@@ -62,7 +62,7 @@ const CommentList = () => {
                     setEditingComment(null); // Clear the editingComment state
                 } else {
                     // add new comment post
-                    const response = await axios.post('http://localhost:3000/comment/', values);
+                    const response = await axios.post(`${window.location.protocol}//${window.location.host}:3000/comment/`, values);
                     const newComment = lodash.get(response, 'data');
                     setComments([...comments, newComment]);
                 }
@@ -80,7 +80,7 @@ const CommentList = () => {
     // delete comment
     const deleteComment = async (_id) => {
         try {
-            await axios.delete(`http://localhost:3000/comment/${_id}`);
+            await axios.delete(`${window.location.protocol}//${window.location.host}:3000/comment/${_id}`);
             const updatedComments = comments.filter((comment) => comment._id !== _id);
             setComments(updatedComments);
         } catch (error) {

@@ -12,17 +12,17 @@ const OrderList = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedOrder, setSelectedOrder] = useState(null);
     async function getData() {
-        axios.get("http://localhost:3000/order/").then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}:3000/order/`).then((res) => {
             setOrders(lodash.get(res, "data.data"))
         });
     }
     async function getUserData() {
-        axios.get("http://localhost:3000/user/").then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}:3000/user/`).then((res) => {
             setUsers(lodash.get(res, "data.data"))
         });
     }
     async function getCarData() {
-        axios.get("http://localhost:3000/car/").then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}:3000/car/`).then((res) => {
             setCars(lodash.get(res, "data.data"))
         });
     }
@@ -38,12 +38,12 @@ const OrderList = () => {
         if (selectedOrder) {
             // update order
             const updatedOrder = { ...selectedOrder, ...values };
-            await axios.post(`http://localhost:3000/order/${selectedOrder._id}`, updatedOrder);
+            await axios.post(`${window.location.protocol}//${window.location.host}:3000/order/${selectedOrder._id}`, updatedOrder);
             getData();
         } else {
             // add new order
             const newOrder = { ...values };
-            await axios.post(`http://localhost:3000/order`, newOrder);
+            await axios.post(`${window.location.protocol}//${window.location.host}:3000/order/`, newOrder);
             getData();
         }
         form.resetFields();
@@ -61,7 +61,7 @@ const OrderList = () => {
 
     const handleDeleteOrder = async (_id) => {
         try {
-            await axios.delete(`http://localhost:3000/order/${_id}`);
+            await axios.delete(`${window.location.protocol}//${window.location.host}:3000/order/${_id}`);
             const filteredOrders = orders.filter((order) => order._id !== _id);
             setOrders(filteredOrders);
         } catch (error) {
