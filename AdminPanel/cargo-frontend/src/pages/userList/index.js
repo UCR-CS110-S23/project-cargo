@@ -12,7 +12,8 @@ const UserList = () => {
 
     async function getData() {
         try {
-            const response = await axios.get(`${window.location.protocol}//${window.location.host}:3000/user/`);
+            const response = await axios.get(`${window.location.protocol}//${window.location.host}/user/`);
+            setUsers(lodash.get(response, 'data.data'));
             setUsers(lodash.get(response, 'data.data'));
         } catch (error) {
             console.error(error);
@@ -38,7 +39,7 @@ const UserList = () => {
             if (editingUser) {
                 // edit an existing user
                 try {
-                    await axios.post(`${window.location.protocol}//${window.location.host}:3000/user/${editingUser._id}`, newUser);
+                    await axios.post(`${window.location.protocol}//${window.location.host}/user/${editingUser._id}`, newUser);
                     const updatedUsers = users.map((user) =>
                         user._id === editingUser._id ? { ...user, ...newUser } : user
                     );
@@ -51,7 +52,7 @@ const UserList = () => {
                 newUser.joinDate = moment().format("YYYY-MM-DD");
                 // adding a new user
                 try {
-                    await axios.post(`${window.location.protocol}//${window.location.host}:3000/user/`, newUser);
+                    await axios.post(`${window.location.protocol}//${window.location.host}/user/`, newUser);
                     setUsers([...users, newUser]);
                 } catch (error) {
                     console.error(error);
@@ -68,7 +69,7 @@ const UserList = () => {
     // delete user
     const deleteUser = async (_id) => {
         try {
-            await axios.delete(`${window.location.protocol}//${window.location.host}:3000/user/${_id}`);
+            await axios.delete(`${window.location.protocol}//${window.location.host}/user/${_id}`);
             const updatedUsers = users.filter((user) => user._id !== _id);
             setUsers(updatedUsers);
         } catch (error) {

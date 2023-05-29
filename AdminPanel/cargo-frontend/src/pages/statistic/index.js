@@ -6,28 +6,28 @@ import lodash from "lodash";
 const Overview = () => {
     const [numObj, setNumObj] = useState({});
     async function getData() {
-        axios.get(`${window.location.protocol}//${window.location.host}:3000/user/`).then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}/user/`).then((res) => {
             const num = lodash.get(res, "data.data.length");
             setNumObj(obj => {
                 obj.userNum = num;
                 return { ...obj };
             })
         });
-        axios.get(`${window.location.protocol}//${window.location.host}:3000/order/`).then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}/order/`).then((res) => {
             const num = lodash.get(res, "data.data.length");
             setNumObj(obj => {
                 obj.orderNum = num;
                 return { ...obj };
             })
         });
-        axios.get(`${window.location.protocol}//${window.location.host}:3000/car/`).then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}/car/`).then((res) => {
             const num = lodash.get(res, "data.data.length");
             setNumObj(obj => {
                 obj.carNum = num;
                 return { ...obj };
             })
         });
-        axios.get(`${window.location.protocol}//${window.location.host}:3000/comment/`).then((res) => {
+        axios.get(`${window.location.protocol}//${window.location.host}/comment/`).then((res) => {
             const num = lodash.get(res, "data.data.length");
             setNumObj(obj => {
                 obj.commentNum = num;
@@ -57,7 +57,7 @@ const Overview = () => {
                     <Col>
                         <div style={{ lineHeight: "80px" }}>
                             <Button onClick={async () => {
-                                await axios.post("http://localhost:3000/initData")
+                                await axios.post("http://localhost/initData")
                                 console.log("generate data success!")
                                 message.success('generate data success!');
                                 getData();
