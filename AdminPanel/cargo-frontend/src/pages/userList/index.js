@@ -49,7 +49,7 @@ const UserList = () => {
                     console.error(error);
                 }
             } else {
-                newUser.joinDate = moment().format("YYYY-MM-DD");
+                newUser.joinDate = moment().format("MM/DD/YYYY");
                 // adding a new user
                 try {
                     await axios.post(`${window.location.protocol}//${window.location.host}/user/`, newUser);
