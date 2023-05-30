@@ -57,11 +57,11 @@ const Overview = () => {
                     <Col>
                         <div style={{ lineHeight: "80px" }}>
                             <Button onClick={async () => {
-                                await axios.post("http://localhost/initData")
-                                console.log("generate data success!")
-                                message.success('generate data success!');
+                                await axios.post(`${window.location.protocol}//${window.location.host}/initData/`)
+                                console.log("Re-initialize database success!")
+                                message.success('Re-initialize database success!');
                                 getData();
-                            }}>generate</Button>
+                            }}>Re-initialize database</Button>
                         </div>
                     </Col>
                 </Row>
