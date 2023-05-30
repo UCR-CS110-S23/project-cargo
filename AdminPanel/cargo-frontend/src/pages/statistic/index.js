@@ -43,16 +43,16 @@ const Overview = () => {
             <Card>
                 <Row gutter={16}>
                     <Col span={4}>
-                        <Statistic title="orderNum" value={lodash.get(numObj, "orderNum")} />
+                        <Statistic title="Orders" value={lodash.get(numObj, "orderNum")} />
                     </Col>
                     <Col span={4}>
-                        <Statistic title="userNum" value={lodash.get(numObj, "userNum")} />
+                        <Statistic title="Users" value={lodash.get(numObj, "userNum")} />
                     </Col>
                     <Col span={4}>
-                        <Statistic title="carNum" value={lodash.get(numObj, "carNum")} />
+                        <Statistic title="Cars" value={lodash.get(numObj, "carNum")} />
                     </Col>
                     <Col span={4}>
-                        <Statistic title="commentNum" value={lodash.get(numObj, "commentNum")} />
+                        <Statistic title="Comments" value={lodash.get(numObj, "commentNum")} />
                     </Col>
                     <Col>
                         <div style={{ lineHeight: "80px" }}>
