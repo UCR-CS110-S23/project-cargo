@@ -6,6 +6,7 @@
     align-items: center;
     width: auto;
     background-color: #00dcff;
+    border-bottom: 8px solid yellow;
 
 }
 .nav-item > span{

@@ -7,11 +7,13 @@ import { Rate} from 'antd'
 //import{Container, Row, Col} from 'react-bootstrap'
 //Book a car page Again images doesnt work but sending the request to the db does work. 
 export const BookACar = () => {
+  
   const style = {
     productsContainer: {
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'spaceBetween',
+      backgroundColor: 'purple'
     },
     products: {
       display: 'flex',
@@ -22,7 +24,7 @@ export const BookACar = () => {
       padding: '1em',
     },
     but: {
-      backgroundColor: '#00dcff',
+      backgroundColor: 'purple',
       color: 'white',
       padding: '10px 20px',
       textAlign: 'center',
@@ -43,24 +45,31 @@ export const BookACar = () => {
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
-      backgroundColor: '#00dcff',
+      backgroundColor: 'purple',
       flex: 1,
       width: '100%'
     },
     sub: {
-        
+      fontWeight: 'bold',
       color: 'black',
+      border: 'none',
+      fontSize: '16px',
+      borderRadius: '12px',
       padding: '10px 20px',
       textAlign: 'center',
       display: 'inline-block',
-      backgroundColor: 'yellow'
+      backgroundColor: 'yellow',
+      
     },
+    
     commentContainer: {
       backgroundColor: '#fff',
       padding: '1em',
       marginBottom: '1em',
       border: '2px solid #ddd',
       borderColor: '#00dcff',
+      textAlign:'center',
+      borderRadius: '18px',
       fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'
     },
     commentUser: {
@@ -91,6 +100,9 @@ export const BookACar = () => {
   const [users, setUsers] = useState([]);
   const [newComment, setNewComments] = useState('');
   const [newRating, setNewRating] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
+
+ 
 
   const setDateHandler = (event) => {
     setDate(event.target.value)
@@ -109,6 +121,7 @@ export const BookACar = () => {
       //console.log('response ', response)
       setDate('')
       setLength('')
+      setSubmitted(true);
     })
     //console.log(date)
     //console.log(length)
@@ -174,9 +187,9 @@ export const BookACar = () => {
                     <div key={index}>
                        
                         <div style={{fontSize: '20px', fontWeight: 'bold'}}>Host's Name: {host.realName}</div>
-                        <br/>
+                        <hr/>
                         <div style={{fontSize: '18px', fontWeight: 'bold', color: 'grey'}}>@{host.username}</div> 
-                        <div style={{fontSize: '16px'}}>Joined {host.joinDate}</div>
+                        <div style={{fontSize: '16px'}}>Joined: {host.joinDate}</div>
                         <div style={{fontSize:'16px'}}>Contact: {host.email}</div>
                     </div>
                 )
@@ -195,71 +208,65 @@ export const BookACar = () => {
       <Navbar/>
       <div style={style.productsContainer}>
         <div style={style.products}>
-          <img style={{width: '100%'}} src={require('../toyota.png')} alt='Toyota Logo'/>
-          <form onSubmit={handleSubmit} style={style.form}>
-          <div style={style.but}>
-            <h2 >Want to Book this Car?</h2>
-            <label>
-              <div>Start Date</div> 
-              <input type="text" value={date} onChange={setDateHandler} placeholder='MM/DD/YYYY'/>       
-            </label>
-          </div>
-          <div style={style.but}>
-            <label>
-              <div>Length of Booking(Days)</div> 
-              <input type="text" value={length} onChange={setLengthHandler}/>       
-            </label>
-          </div>
-          <div style={style.but}>
-            <button style={style.sub}>Book Car</button>
-          </div>
-        </form>
-        <form onSubmit={handlePostComment} style={style.form}>
-          <div style={style.but}>
-              <h2>Leave a Comment</h2>
-                <input type='text' value={newComment} onChange={setNewHandler}/>
-          </div>
-          <div style={style.but}>
-             <label>
-                <Rate allowHalf onChange={setNewRating} style={{color:'yellow', outlineColor:'yellow'}}/>
+          <img style={{width: '100%', border: '5px solid', borderColor:'#00dcff', borderRadius:'12px'}} src={require('../toyota.png')} alt='Toyota Logo'/>
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+            <form onSubmit={handleSubmit} style={style.form}>
+            <div style={style.but}>
+              <h2 >Want to Book this Car?</h2>
+              <label>
+                <div>Start Date</div> 
+                <input type="text" value={date} onChange={setDateHandler} placeholder='MM/DD/YYYY'/>       
               </label>
-          </div>
-          <div style={style.but}>
-            <button style={style.sub}>Leave Comment</button>
-          </div>
-          </form>           
+            </div>
+            <div style={style.but}>
+              <label>
+                <div>Length of Booking(Days)</div> 
+                <input type="text" value={length} onChange={setLengthHandler}/>       
+              </label>
+            </div>
+            <div style={style.but}>
+              <button style={style.sub}>Book Car</button>
+            </div>
+            {submitted && <div style={{color:'white', fontSize: '16px', textAlign:'center', border: '5px solid', borderColor:'#00dcff', borderRadius:'12px'}}>Order Placed!</div>}
+          </form>
+          <form onSubmit={handlePostComment} style={style.form}>
+            <div style={style.but}>
+                <h2>Leave a Comment and a Rating!</h2>
+                  <input type='text' value={newComment} onChange={setNewHandler}/>
+            </div>
+            <div style={style.but}>
+              <label>
+                  <Rate allowHalf onChange={setNewRating} style={{color:'yellow', outlineColor:'yellow'}}/>
+                </label>
+            </div>
+            <div style={style.but}>
+              <button style={style.sub}>Leave Comment</button>
+            </div>
+            </form>
+            </div>           
         </div>
 
-        <div>
-          <h1 style={{color:'Black', textDecoration: 'underline', textDecorationColor: '#00dcff'}}>Host Info</h1>
+        <div style={{textAlign:'center'}}>
+          <h1 style={{color:'white', textDecoration: 'underline', textDecorationColor: 'yellow'}}>Host Info</h1>
           <div style={style.commentContainer}>
             {displayHostInfo()}
           </div>
-          <h1 style={{color:'black', textDecoration: 'underline', textDecorationColor: '#00dcff'}}>Car Info</h1>
+          <h1 style={{color:'white', textDecoration: 'underline', textDecorationColor: 'yellow'}}>Car Info</h1>
           <div style={style.commentContainer}>
-            <div style={{ fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'}}>
-              <b>Brand</b> <CarEmoji/>: {location.state.make}
+            <div style={{ display:'flex', fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif', justifyContent:'space-evenly'}}>
+              <div><b>Brand</b> <CarEmoji/>: {location.state.make}</div> <div><b>Make</b> <MakeEmoji/>: {location.state.model}</div>
             </div>
-            <div style={{ fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'}}>
-              <b>Make</b> <MakeEmoji/>: {location.state.model}
+            <div style={{ display:'flex', fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif', justifyContent:'space-evenly'}}>
+              <div><b>Year</b> <YearEmoji/>: {location.state.year}</div><div><b>Location</b> <LocationEmoji/>: {location.state.location}</div>
               </div>
-            <div style={{ fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'}}>
-              <b>Year</b> <YearEmoji/>: {location.state.year}
+            <div style={{display:'flex', fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif', justifyContent:'space-evenly'}}>
+              <div><b>Price Per Day</b><PriceEmoji/>:{location.state.pricePerDay}</div><div><b>Engine</b> <EngineEmoji/>: {location.state.engineType}</div>
               </div>
-            <div style={{ fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'}}>
-              <b>Engine</b> <EngineEmoji/>: {location.state.engineType}
-              </div>
-            <div style={{ fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'}}>
-              <b>Price Per Day</b> <PriceEmoji/>: {location.state.pricePerDay}
-              </div>
-            <div style={{ fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'}}>
-              <b>Location (Zip Code)</b> <LocationEmoji/>: {location.state.location}
-              </div>
-            <div style={{ fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'}}>
+            <div style={{display:'flex', fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif', justifyContent:'space-evenly'}}>
               <b>Features</b> <FeaturesEmoji/>: {location.state.features}
               </div>
           </div>
-          <h1 style={{color:'black', textDecoration: 'underline', textDecorationColor: '#00dcff'}}>Reviews</h1>
+          <h1 style={{color:'white', textDecoration: 'underline', textDecorationColor: 'yellow'}}>Reviews</h1>
           <div style={style.commentContainer}>
             {displayComments()}
             {/* <form onSubmit={handlePostComment} style={style.form}>
@@ -273,6 +280,9 @@ export const BookACar = () => {
 
 
           </div>
+        </div>
+        <div>
+          
         </div>
       </div>
       {/* <div style={style.wrap}>
