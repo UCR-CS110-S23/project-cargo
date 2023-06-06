@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Table, Button, Modal, Form, Input, Select, Row, Col, DatePicker, InputNumber} from 'antd';
+import {Table, Button, Modal, Form, Input, Select, Row, Col, Image, InputNumber} from 'antd';
 import axios from "axios";
 import lodash from "lodash";
 
@@ -9,7 +9,21 @@ const CarList = () => {
     const [visible, setVisible] = useState(false); // form window visibility
     const [form] = Form.useForm(); // form instance
     const [editingCarId, setEditingCarId] = useState(null); // ID of the car being edited
+    const [carProfileURLURL, setBase64Image] = useState(null);
 
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            const base64 = reader.result;
+            setBase64Image(base64);
+            form.setFieldsValue({
+                carProfileURLURL:base64
+            })
+        };
+        reader.readAsDataURL(file);
+    };
     // get car data
     async function getData() {
         try {
@@ -35,7 +49,8 @@ const CarList = () => {
     // add car
     const addCar = () => {
         form.resetFields();
-        setEditingCarId(null); // clear the ID 
+        setBase64Image(null)
+        setEditingCarId(null); // clear the ID
         setVisible(true);
     };
 
@@ -45,6 +60,7 @@ const CarList = () => {
         setVisible(true);
         let editingCar = lodash.find(cars, { _id: carId }); // find the car being edited by ID
         editingCar = {...editingCar};
+        setBase64Image(editingCar.carProfileURLURL)
         form.setFieldsValue(editingCar); // set form field values
     };
 
@@ -114,6 +130,15 @@ const CarList = () => {
             title: 'Engine Type',
             dataIndex: 'engineType',
             key: 'engineType',
+        },
+        {
+            title: 'carProfileURL',
+            dataIndex: 'carProfileURL',
+            key: 'carProfileURL',
+            render:(text, record)=>{
+                return record.carProfileURL &&
+                    <Image src={record.carProfileURL}  style={{width:200,height:200}}/>
+            }
         },
         {
             title: 'Door Type',
@@ -307,6 +332,18 @@ const CarList = () => {
                             </Form.Item>
                         </Col>
                     </Row>
+                    <Row gutter={16}>
+                        <Col span={24}>
+                            <Form.Item
+                                name="carProfileURL"
+                                label="carProfileURL"
+                                rules={[{ required: true, message: 'Please enter the carProfileURL' }]}
+                            >
+                                <Input/>
+                            </Form.Item>
+                        </Col>
+                    </Row>
+
                 </Form>
             </Modal>
         </div>

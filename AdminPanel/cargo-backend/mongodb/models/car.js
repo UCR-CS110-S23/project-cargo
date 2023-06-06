@@ -14,6 +14,7 @@ const schema = new Schema({
     location: String, //zipCode
     features:String, //Automatic Transmission , Backup Camera
     booked:Number, //0 1
+    carProfileURL: String,
 })
 
 schema.pre('save',function(next){

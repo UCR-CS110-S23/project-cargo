@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Button, Modal, Form, Input } from 'antd';
+import {Table, Button, Modal, Form, Input, Col, Image, Row} from 'antd';
 import axios from 'axios';
 import lodash from 'lodash';
 import moment from "moment";
@@ -9,7 +9,21 @@ const UserList = () => {
     const [visible, setVisible] = useState(false); // form window visibility
     const [form] = Form.useForm(); // form instance
     const [editingUser, setEditingUser] = useState(null); // track the user being edited
+    const [userProfileURL, setBase64Image] = useState(null);
 
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            const base64 = reader.result;
+            setBase64Image(base64);
+            form.setFieldsValue({
+                userProfileURL:base64
+            })
+        };
+        reader.readAsDataURL(file);
+    };
     async function getData() {
         try {
             const response = await axios.get(`${window.location.protocol}//${window.location.host}/user/`);
@@ -112,6 +126,15 @@ const UserList = () => {
             key: 'joinDate',
         },
         {
+            title: 'userProfile',
+            dataIndex: 'userProfile',
+            key: 'userProfile',
+            render:(text, record)=>{
+                return record.userProfileURL &&
+                <Image src={record.userProfileURL}  style={{width:200,height:200}}/>
+            }
+        },
+        {
             title: 'Action',
             key: 'action',
             render: (_, record) => (
@@ -173,6 +196,13 @@ const UserList = () => {
                         rules={[{ required: true, message: 'Please enter a password' }]}
                     >
                         <Input.Password />
+                    </Form.Item>
+                    <Form.Item
+                        name="userProfileURL"
+                        label="userProfileURL"
+                        rules={[{ required: true, message: 'Please enter the userProfileURL' }]}
+                    >
+                        <Input/>
                     </Form.Item>
                 </Form>
             </Modal>

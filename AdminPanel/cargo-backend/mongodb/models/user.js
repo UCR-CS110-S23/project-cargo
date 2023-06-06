@@ -6,6 +6,7 @@ const schema = new Schema({
     password: String,
     email: String,
     joinDate: String,
+    userProfileURL: String,
 })
 
 schema.pre('save',function(next){

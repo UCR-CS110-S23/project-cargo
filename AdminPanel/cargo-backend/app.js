@@ -15,17 +15,22 @@ const cors = require('cors')
 const app = express();
 const dbConfig = require("./mongodb/dbConfig")
 
-mongoose.connect(`mongodb://${dbConfig.user}:${dbConfig.password}@${dbConfig.host}/${dbConfig.dbName}`);
+mongoose.connect(`mongodb://${dbConfig.user}:${dbConfig.password}@${dbConfig.host}/${dbConfig.dbName}`,{
+  useMongoClient: true,
+});
 
 const userRouter = require('./routes/user');
 const orderRouter = require('./routes/order');
 const carRouter = require('./routes/car');
 const commentRouter = require('./routes/comment');
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.post('/initData',async (req, res)=>{
   await generateData();
