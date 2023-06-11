@@ -63,7 +63,7 @@ DEL /comment/delete-comment
 POST /comment/update-comment
 ```
 Example:
-POST to http://xxx:3000/add-user with
+POST to http://xxx:3000/user/add-user with
 ```
 {
     "username": "jack111",
