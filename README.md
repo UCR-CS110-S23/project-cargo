@@ -129,5 +129,5 @@ joinDate: String // 05/20/2023
 * Database - Carl Che
 
 ## Partial Presentation Video
-Admin Panel & Database
+Admin Panel & Database (Carl Che)
 https://v.sinogamer.com/CS110FinalProjectCarlChe.mp4
