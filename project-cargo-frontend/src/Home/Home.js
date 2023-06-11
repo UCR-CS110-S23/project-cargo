@@ -39,6 +39,18 @@ export const Home = () => {
       textDecoration:'underline',
       textDecorationColor:'#333333',
     },
+    button: {
+      fontWeight: 'bold',
+      color: 'black',
+      border: 'none',
+      fontSize: '16px',
+      borderRadius: '12px',
+      padding: '10px 20px',
+      textAlign: 'center',
+      display: 'inline-block',
+      backgroundColor: 'yellow',
+      
+    },
   }
 
 
@@ -53,7 +65,7 @@ export const Home = () => {
 
 
   return (
-    <div className='App'>
+    <div>
       <Navbar/>
       <div style={{textAlign:'center', fontSize:'30px', marginTop: '2%', fontWeight:'bold'}}>
           Drive in Comfort<br/>
@@ -80,8 +92,10 @@ export const Home = () => {
           
         </div>
         </div>
-        <button className='redirectButtons' style={{ marginLeft: '30%'}}>View Hosts</button>
-        <button className='redirectButtons' style={{ marginLeft: '65%'}}> List of Cars</button>
+        <div style={{display:'flex', justifyContent:'center'}}>
+          <button style={style.button}>View Hosts</button>
+          <button style={style.button}> List of Cars</button>
+        </div>
     </div>
   )
 }

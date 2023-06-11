@@ -16,7 +16,24 @@ export const BrowseByType = () => {
         flexDirection: 'column',
         alignItems: 'center',
         width: '45%',
-      }
+      },
+      homeImageContainer: {
+        width: '500px',
+        height:'250px',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        overflow: 'hidden',
+        border:'5px solid',
+        borderColor:'#222222',
+        borderRadius: '12px',  
+      },
+      homeImage:{
+        width:'100%',
+        height: '100%',
+        objectFit: 'cover',
+            
+      },
     }
     
       const displayCars = () => {
@@ -27,7 +44,7 @@ export const BrowseByType = () => {
                   location.state.engineType === car.engineType &&
                   <div key={index} style={style.products}>
                     <p style={{fontWeight: 'bold', fontSize:'24px'}}>{car.model}</p>
-                    <img className="homeImage" style={{border: '5px solid', borderColor:'#222222', borderRadius:'12px'}} onClick={() => {navigate('../make/book', {"state": car})}} src={require('../toyota.png')} alt='Toyota Logo'/>           
+                    <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => {navigate('../make/book', {"state": car})}} src={car.carProfileURL} alt='Toyota Logo'/></div>
                   </div>
                 )
               })}

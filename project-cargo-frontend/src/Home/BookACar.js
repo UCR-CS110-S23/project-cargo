@@ -22,6 +22,24 @@ export const BookACar = () => {
       width: '45%',
       margin: '0 0 1em 0',
       padding: '1em',
+      backgroundColor: '#F9F9F9'
+    },
+    ImageContainer: {
+      width: '100%',
+      height:'auto',
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      overflow: 'hidden',
+      border:'5px solid',
+      borderColor:'#222222',
+      borderRadius: '12px',  
+    },
+    Image:{
+      width:'100%',
+      height: '100%',
+      objectFit: 'cover',
+          
     },
     but: {
       backgroundColor: '#F9F9F9',
@@ -163,10 +181,15 @@ export const BookACar = () => {
           // console.log(singleComment.uid)
           return (
             location.state._id === singleComment.cid && (
+
               <div key={index}>
-                <div style={style.commentUser}>
-                  @{users.find((user) => user._id === singleComment.uid)?.username}<br/>
-                </div>
+                  <div style={{fontSize: '20px', fontWeight: 'bold', display:'flex', alignItems: 'center', justifyContent:'center'}}>
+
+                
+                  <img src={users.find((user) => user._id === singleComment.uid)?.userProfileURL} alt='user pfp' style={{width:'50px',height:'45px', borderRadius:'50%', marginRight:'7px'}}></img>
+                    @{users.find((user) => user._id === singleComment.uid)?.username}
+                
+                  </div><br/>
                   <div style={style.commentContent}>{singleComment.comment}</div>
                 <Rate allowHalf value={singleComment.rating} disabled />
                 <hr/>
@@ -182,13 +205,18 @@ export const BookACar = () => {
   const displayHostInfo = () => {
     return(
         <div>
+            
             {users.map((host, index) => {
+              (console.log(host))
                 return(
                     location.state.uid === host._id &&
                     <div key={index}>
                        
-                        <div style={{fontSize: '20px', fontWeight: 'bold'}}>Host's Name: {host.realName}</div>
+                        <div style={{fontSize: '20px', fontWeight: 'bold', display:'flex', alignItems: 'center', justifyContent:'center'}}>
+                          <img style={{width:'50px',height:'45px', borderRadius:'50%', marginRight:'7px'}} src={host.userProfileURL} alt='user pfp'></img>{host.realName}
+                          </div>
                         <hr/>
+                        
                         <div style={{fontSize: '18px', fontWeight: 'bold', color: 'grey'}}>@{host.username}</div> 
                         <div style={{fontSize: '16px'}}>Joined: {host.joinDate}</div>
                         <div style={{fontSize:'16px'}}>Contact: {host.email}</div>
@@ -205,11 +233,11 @@ export const BookACar = () => {
   return (
 
 
-    <div style={{height: '100%', backgroundColor: 'white'}}>
+    <div style={{height: '100vh', backgroundColor: '#F9F9F9'}}>
       <Navbar/>
       <div style={style.productsContainer}>
         <div style={style.products}>
-          <img style={{width: '100%', border: '5px solid', borderColor:'#222222', borderRadius:'12px'}} src={require('../toyota.png')} alt='Toyota Logo'/>
+          <div style={style.ImageContainer}><img style={style.Image} src={location.state.carProfileURL} alt='Toyota Logo'/></div>
             <div style={{display: 'flex', flexDirection: 'row'}}>
             <form onSubmit={handleSubmit} style={style.form}>
             <div style={style.but}>
@@ -305,6 +333,7 @@ export const BookACar = () => {
           </div>
         </form>
       </div> */}
+      <div style={{backgroundColor:'#F9F9F9'}}></div>
     </div>
   )
 }
