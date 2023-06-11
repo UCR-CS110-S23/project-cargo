@@ -131,6 +131,7 @@ The directories are formatted as followed:
 * ../src/API/: contains file consisting of all API used to communicate with the backend 
 * ../src/global/: contains the navbar that is used throughout the whole website
 * ../src/Home/: contains the website's various pages
+* ../src/App.js: contains all of the necessary routing for the website.
 ## Division of Labor
 * Home - Aarav Patel
 * Login - Jenhua Chang 
