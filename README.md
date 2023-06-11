@@ -33,6 +33,11 @@ pm2 start bin/www --name cargo-admin -f
 - Password: 
 - Database name: cargo
 
+## Admin Panel Online Demo
+### Please don't act maliciously on the page. 
+http://173.254.240.202:3000/
+
+
 ## Back-end API
 /user
 ```
@@ -112,3 +117,17 @@ password: String
 email : String
 joinDate: String // 05/20/2023
 ```
+## Division of Labor
+* Home - Aarav Patel
+* Login - Jenhua Chang 
+* List of cars - Austin Haugland
+* User profile viewing/editing - Jenhua Chang
+* User post new car - Austin Haugland
+* Car detail (with submitting and viewing comments and booking)
+* Booking submits the starting date, and the length of days - Aarav Patel
+* Admin panel(user/order/car/comment)  - Carl Che
+* Database - Carl Che
+
+## Partial Presentation Video
+Admin Panel & Database (Carl Che)
+https://v.sinogamer.com/CS110FinalProjectCarlChe.mp4
