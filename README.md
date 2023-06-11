@@ -117,6 +117,20 @@ password: String
 email : String
 joinDate: String // 05/20/2023
 ```
+## Front-End
+Inside the project-cargo-frontend folder run
+```sh
+npm i
+``` 
+then
+```sh
+npm start
+```
+to see a working version of the website on your localhost.
+The directories are formatted as followed: 
+* ../src/API/: contains file consisting of all API used to communicate with the backend 
+* ../src/global/: contains the navbar that is used throughout the whole website
+* ../src/Home/: contains the website's various pages
 ## Division of Labor
 * Home - Aarav Patel
 * Login - Jenhua Chang 
@@ -124,7 +138,7 @@ joinDate: String // 05/20/2023
 * User profile viewing/editing - Jenhua Chang
 * User post new car - Austin Haugland
 * Car detail (with submitting and viewing comments and booking)
-* Booking submits the starting date, and the length of days - Aarav Patel
+ Booking submits the starting date, and the length of days - Aarav Patel
 * Admin panel(user/order/car/comment)  - Carl Che
 * Database - Carl Che
 
