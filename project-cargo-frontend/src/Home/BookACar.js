@@ -13,7 +13,7 @@ export const BookACar = () => {
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'spaceBetween',
-      backgroundColor: 'purple'
+      backgroundColor: '#F9F9F9'
     },
     products: {
       display: 'flex',
@@ -24,7 +24,7 @@ export const BookACar = () => {
       padding: '1em',
     },
     but: {
-      backgroundColor: 'purple',
+      backgroundColor: '#F9F9F9',
       color: 'white',
       padding: '10px 20px',
       textAlign: 'center',
@@ -45,7 +45,7 @@ export const BookACar = () => {
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
-      backgroundColor: 'purple',
+      backgroundColor: '#F9F9F9',
       flex: 1,
       width: '100%'
     },
@@ -67,7 +67,7 @@ export const BookACar = () => {
       padding: '1em',
       marginBottom: '1em',
       border: '2px solid #ddd',
-      borderColor: '#00dcff',
+      borderColor: '#222222',
       textAlign:'center',
       borderRadius: '18px',
       fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'
@@ -82,7 +82,8 @@ export const BookACar = () => {
       marginBottom: '0.5em',
       fontSize: '16px',
       fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif'
-    }
+    },
+
     
   }
   const CarEmoji = () => <span role='img' aria-label='car'>🚗</span>
@@ -208,35 +209,35 @@ export const BookACar = () => {
       <Navbar/>
       <div style={style.productsContainer}>
         <div style={style.products}>
-          <img style={{width: '100%', border: '5px solid', borderColor:'#00dcff', borderRadius:'12px'}} src={require('../toyota.png')} alt='Toyota Logo'/>
+          <img style={{width: '100%', border: '5px solid', borderColor:'#222222', borderRadius:'12px'}} src={require('../toyota.png')} alt='Toyota Logo'/>
             <div style={{display: 'flex', flexDirection: 'row'}}>
             <form onSubmit={handleSubmit} style={style.form}>
             <div style={style.but}>
-              <h2 >Want to Book this Car?</h2>
+              <h2 style={{color:'black'}}>Want to Book this Car?</h2>
               <label>
                 <div>Start Date</div> 
-                <input type="text" value={date} onChange={setDateHandler} placeholder='MM/DD/YYYY'/>       
+                <input type="text" value={date} onChange={setDateHandler} placeholder='MM/DD/YYYY' style={{boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",padding: "10px",border: "1px solid #CCCCCC",borderRadius: "5px",}}/>       
               </label>
             </div>
             <div style={style.but}>
               <label>
                 <div>Length of Booking(Days)</div> 
-                <input type="text" value={length} onChange={setLengthHandler}/>       
+                <input type="text" value={length} onChange={setLengthHandler} placeholder='Length of Booking' style={{boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",padding: "10px",border: "1px solid #CCCCCC",borderRadius: "5px",}}/>       
               </label>
             </div>
             <div style={style.but}>
               <button style={style.sub}>Book Car</button>
             </div>
-            {submitted && <div style={{color:'white', fontSize: '16px', textAlign:'center', border: '5px solid', borderColor:'#00dcff', borderRadius:'12px'}}>Order Placed!</div>}
+            {submitted && <div style={{color:'#333333', fontSize: '16px', textAlign:'center', border: '5px solid', borderColor:'#222222', borderRadius:'12px'}}>Your order has been received!</div>}
           </form>
           <form onSubmit={handlePostComment} style={style.form}>
             <div style={style.but}>
-                <h2>Leave a Comment and a Rating!</h2>
-                  <input type='text' value={newComment} onChange={setNewHandler}/>
+                <h2 style={{color:'black'}}>Leave a Comment and a Rating!</h2>
+                  <input type='text' value={newComment} onChange={setNewHandler} placeholder='Comment' style={{boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",padding: "10px",border: "1px solid #CCCCCC",borderRadius: "5px",}}/>
             </div>
             <div style={style.but}>
               <label>
-                  <Rate allowHalf onChange={setNewRating} style={{color:'yellow', outlineColor:'yellow'}}/>
+                  <Rate allowHalf onChange={setNewRating} style={{color:'yellow', outlineColor:'yellow', marginTop:'10px', fontSize:'20px'}}/>
                 </label>
             </div>
             <div style={style.but}>
@@ -245,13 +246,13 @@ export const BookACar = () => {
             </form>
             </div>           
         </div>
-
-        <div style={{textAlign:'center'}}>
-          <h1 style={{color:'white', textDecoration: 'underline', textDecorationColor: 'yellow'}}>Host Info</h1>
+        
+        <div style={{textAlign:'center', marginLeft:'12.5%'}}>
+          <h1 style={{color:'#333333', textDecoration: 'underline', textDecorationColor: '#222222'}}>Host Info</h1>
           <div style={style.commentContainer}>
             {displayHostInfo()}
           </div>
-          <h1 style={{color:'white', textDecoration: 'underline', textDecorationColor: 'yellow'}}>Car Info</h1>
+          <h1 style={{color:'#333333', textDecoration: 'underline', textDecorationColor: '#222222'}}>Car Info</h1>
           <div style={style.commentContainer}>
             <div style={{ display:'flex', fontFamily: 'RlBasisGrotesque, Avenir, Helvetica Neue, Helvetica, sans-serif', justifyContent:'space-evenly'}}>
               <div><b>Brand</b> <CarEmoji/>: {location.state.make}</div> <div><b>Make</b> <MakeEmoji/>: {location.state.model}</div>
@@ -266,7 +267,7 @@ export const BookACar = () => {
               <b>Features</b> <FeaturesEmoji/>: {location.state.features}
               </div>
           </div>
-          <h1 style={{color:'white', textDecoration: 'underline', textDecorationColor: 'yellow'}}>Reviews</h1>
+          <h1 style={{color:'#333333', textDecoration: 'underline', textDecorationColor: '#222222'}}>Reviews</h1>
           <div style={style.commentContainer}>
             {displayComments()}
             {/* <form onSubmit={handlePostComment} style={style.form}>

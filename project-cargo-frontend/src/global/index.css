@@ -5,8 +5,8 @@
     justify-content: space-between;
     align-items: center;
     width: auto;
-    background-color: #00dcff;
-    border-bottom: 8px solid yellow;
+    background-color: #333333;
+    border-bottom: 8px solid #E0E0E0;
 
 }
 .nav-item > span{

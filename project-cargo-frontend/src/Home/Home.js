@@ -5,6 +5,43 @@ import Navbar from "../global/navbar";
 import React from "react";
 //Home Page 
 export const Home = () => {
+
+  const style = {
+    homeImageContainer: {
+      width: '500px',
+      height:'300px',
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      overflow: 'hidden'
+    },
+    homeImage:{
+      width:'100%',
+      height: '100%',
+      objectFit: 'cover',
+      borderRadius: '12px',      
+    },
+    browseContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      marginBottom: '2rem',
+    },
+
+    browseSection: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+
+    browseTitle: {
+      marginBottom: '1rem',
+      textDecoration:'underline',
+      textDecorationColor:'#333333',
+    },
+  }
+
+
   const [cars, setCars] = useState([])
 
   useEffect(() => {
@@ -18,31 +55,33 @@ export const Home = () => {
   return (
     <div className='App'>
       <Navbar/>
-      <div className='Browse'>
-       
-          <h2>Browse by Make</h2><br/>
-          <h3>Toyota</h3>
-          <img className="homeImage" onClick={() => navigate('/make', {"state": {"make": "Toyota", 'allCars': cars}})} src={require('../toyota.png')} alt='Toyota Logo'/>
-          <h3>BMW</h3>
-          <img className="homeImage" onClick={() => navigate('/make', {"state": {"make": "BMW", 'allCars': cars}})} src={require('../bmw.png')} alt='bmw Logo'/>               
-          <h3>Tesla</h3>
-          <img className="homeImage" onClick={() => navigate('/make', {"state": {"make": "Tesla", 'allCars': cars}})} src={require('../tesla.png')} alt='tesla Logo' />               
-          
+      <div style={{textAlign:'center', fontSize:'30px', marginTop: '2%', fontWeight:'bold'}}>
+          Drive in Comfort<br/>
       </div>
+      <div style={style.browseContainer}>
+        <div style={style.browseSection}>
+            <h2 style={style.browseTitle}>Browse by Make</h2>
 
-      <div className='Browse'>
-          
-            <h2>Browse by Type</h2>
-            <h3>Gas</h3>
-            <img className="homeImage" onClick={() => navigate('/type', {"state": {"engineType":"Gas", 'allCars': cars}})} src={require('../mustang.png')} alt='gas car'/>
-            <h3>Electric</h3>
-            <img className="homeImage" onClick={() => navigate('/type', {"state": {"engineType":"Eletric", 'allCars': cars}})} src={require('../electric.png')} alt='electric car'/>
-            <h3>Hybrid</h3>
-            <img className="homeImage" onClick={() => navigate('/type', {"state": {"engineType":"Hybrid", 'allCars': cars}})} src={require('../hybrid.png')} alt='hybrid car'/>
-          
+              <h3>Toyota</h3>
+              <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => navigate('/make', {"state": {"make": "Toyota", 'allCars': cars}})} src={require('../toyota.png')} alt='Toyota Logo'/></div>
+              <h3>BMW</h3>
+              <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => navigate('/make', {"state": {"make": "BMW", 'allCars': cars}})} src={require('../bmw.png')} alt='bmw Logo'/></div>               
+              <h3>Tesla</h3>
+              <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => navigate('/make', {"state": {"make": "Tesla", 'allCars': cars}})} src={require('../tesla.png')} alt='tesla Logo' /></div>               
       </div>
-      <button className='redirectButtons' style={{ marginLeft: '30%'}}>View Hosts</button>
-      <button className='redirectButtons' style={{ marginLeft: '65%'}}> List of Cars</button>
+        <div style={style.browseSection}>
+            <h2 style={style.browseTitle}>Browse by Type</h2>
+            <h3>Gas Cars</h3>
+            <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => navigate('/type', {"state": {"engineType":"Gas", 'allCars': cars}})} src={require('../mustang.png')} alt='gas car'/></div>
+            <h3>Electric Cars</h3>
+            <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => navigate('/type', {"state": {"engineType":"Eletric", 'allCars': cars}})} src={require('../electric.png')} alt='electric car'/></div>
+            <h3>Hybrid Cars</h3>
+            <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => navigate('/type', {"state": {"engineType":"Hybrid", 'allCars': cars}})} src={require('../hybrid.png')} alt='hybrid car'/></div>
+          
+        </div>
+        </div>
+        <button className='redirectButtons' style={{ marginLeft: '30%'}}>View Hosts</button>
+        <button className='redirectButtons' style={{ marginLeft: '65%'}}> List of Cars</button>
     </div>
   )
 }
