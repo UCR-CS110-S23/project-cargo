@@ -112,3 +112,17 @@ password: String
 email : String
 joinDate: String // 05/20/2023
 ```
+## Division of Labor
+* Home - Aarav Patel
+* Login - Jenhua Chang 
+* List of cars - Austin Haugland
+* User profile viewing/editing - Jenhua Chang
+* User post new car - Austin Haugland
+* Car detail (with submitting and viewing comments and booking)
+* Booking submits the starting date, and the length of days - Aarav Patel
+* Admin panel(user/order/car/comment)  - Carl Che
+* Database - Carl Che
+
+## Partial Presentation Video
+Admin Panel & Database
+https://v.sinogamer.com/CS110FinalProjectCarlChe.mp4
