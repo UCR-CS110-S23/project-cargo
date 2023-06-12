@@ -9,7 +9,7 @@ import { BrowseByType } from './Home/BrowseByType';
 import { Register} from './Register/Register';
 import PostCar from './Pages/postCar/PostCar';
 import ViewList from './Pages/viewList/ViewList';
-
+import { ViewUsers } from './Home/ViewUsers';
 function App() {
     return (
         <div>
@@ -22,6 +22,7 @@ function App() {
                     <Route path="/register" element={<Register/>} />
                     <Route path="/post-car" element={<PostCar />} />
                     <Route path="/view-cars" element={<ViewList />} />
+                    <Route path="/users" element={<ViewUsers />} />
                     {/* <Route path="/login" component={Login} /> */}
                 </Routes>
             </Router>

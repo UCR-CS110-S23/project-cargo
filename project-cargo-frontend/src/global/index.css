@@ -16,9 +16,10 @@
 }
 
 .navbar-container {
-    /* display: flex; */
+    display: flex;
     align-items: center;
-    width: 400px;
+    /* width: 400px; */
+    justify-content: center;
     position: relative;
 }
 
@@ -31,10 +32,11 @@
 .nav-menu {
     display: flex;
     list-style: none;
+    
 }
 
 .nav-item {
-    margin: auto;
+    margin-right: 30px;
     text-decoration: none;
     color: white
 }
@@ -76,12 +78,12 @@
 .CAR {
     font-weight: bold;
     color: white;
-    font-size: 28px;
-    /* margin-right: 47%; */
-    position: absolute;
-    top: 45%;
-
-    transform: translateY(-50%);
+    font-size: 32px;
+    margin-right: 5%;
+    /* position: absolute; */
+    /* top: 45%; */
+    
+    /* transform: translateY(-50%); */
 
 }
 

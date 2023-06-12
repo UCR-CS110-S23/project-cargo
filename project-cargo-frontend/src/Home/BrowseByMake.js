@@ -46,7 +46,7 @@ export const BrowseByMake = () => {
             location.state.make === car.make &&
             <div key={index} style={style.products}>
               <p style={{fontWeight: 'bold', fontSize:'24px'}}>{car.model}</p>
-              <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => {navigate('book', {"state": car})}} src={car.carProfileURL} alt='Toyota Logo'/></div>
+              <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => {navigate('book', {"state": car})}} src={car.carProfileURL} alt='car'/></div>
             </div>
           )
         })}
