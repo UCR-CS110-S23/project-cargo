@@ -9,6 +9,7 @@ import { BrowseByType } from './Home/BrowseByType';
 import { Register} from './Register/Register';
 import PostCar from './Pages/postCar/PostCar';
 import ViewList from './Pages/viewList/ViewList';
+import CarDetails from './Pages/carDetails/CarDetails';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/register" element={<Register/>} />
                     <Route path="/post-car" element={<PostCar />} />
                     <Route path="/view-cars" element={<ViewList />} />
+                    <Route path="/car/:_id" element={<CarDetails />} />
                     {/* <Route path="/login" component={Login} /> */}
                 </Routes>
             </Router>
