@@ -6,6 +6,7 @@ import './App.css';
 import { BrowseByMake } from './Home/BrowseByMake';
 import { BookACar } from './Home/BookACar';
 import { BrowseByType } from './Home/BrowseByType';
+import { Register} from './Register/Register';
 
 function App() {
     return (
@@ -16,7 +17,8 @@ function App() {
                     <Route path="make" element={<BrowseByMake />} />
                     <Route path="make/book" element={<BookACar />} />
                     <Route path="type" element={<BrowseByType />} />
-                    
+                    <Route path="/register" element={<Register/>} />
+                    {/* <Route path="/login" component={Login} /> */}
                 </Routes>
             </Router>
         </div>

@@ -9,10 +9,12 @@
     border-bottom: 8px solid yellow;
 
 }
-.nav-item > span{
+
+.nav-item>span {
     color: white;
     cursor: pointer;
 }
+
 .navbar-container {
     /* display: flex; */
     align-items: center;
@@ -71,14 +73,20 @@
     display: block;
 }
 
-.CAR{
+.CAR {
     font-weight: bold;
     color: white;
     font-size: 28px;
     /* margin-right: 47%; */
     position: absolute;
     top: 45%;
-    
+
     transform: translateY(-50%);
-    
+
+}
+
+.navbar-right {
+    display: flex;
+    gap: 25px;
+    /* right: 0; */
 }
