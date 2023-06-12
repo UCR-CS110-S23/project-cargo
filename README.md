@@ -33,6 +33,11 @@ pm2 start bin/www --name cargo-admin -f
 - Password: 
 - Database name: cargo
 
+## Admin Panel Online Demo
+### Please don't act maliciously on the page. 
+http://173.254.240.202:3000/
+
+
 ## Back-end API
 /user
 ```
@@ -63,7 +68,7 @@ DEL /comment/delete-comment
 POST /comment/update-comment
 ```
 Example:
-POST to http://xxx:3000/add-user with
+POST to http://xxx:3000/user/add-user with
 ```
 {
     "username": "jack111",
@@ -112,3 +117,32 @@ password: String
 email : String
 joinDate: String // 05/20/2023
 ```
+## Front-End
+Inside the project-cargo-frontend folder run
+```sh
+npm i
+``` 
+then
+```sh
+npm start
+```
+to see a working version of the website on your localhost.
+The directories are formatted as followed: 
+* ../src/API/: contains file consisting of all API used to communicate with the backend 
+* ../src/global/: contains the navbar that is used throughout the whole website
+* ../src/Home/: contains the website's various pages
+* ../src/App.js: contains all of the necessary routing for the website.
+## Division of Labor
+* Home - Aarav Patel
+* Login - Jenhua Chang 
+* List of cars - Austin Haugland
+* User profile viewing/editing - Jenhua Chang
+* User post new car - Austin Haugland
+* Car detail (with submitting and viewing comments and booking)
+ Booking submits the starting date, and the length of days - Aarav Patel
+* Admin panel(user/order/car/comment)  - Carl Che
+* Database - Carl Che
+
+## Partial Presentation Video
+Admin Panel & Database (Carl Che)
+https://v.sinogamer.com/CS110FinalProjectCarlChe.mp4
