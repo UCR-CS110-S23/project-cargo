@@ -11,6 +11,12 @@ const Navbar = () => {
                         <Link className='nav-item' to="/">Home</Link>
                         <Link className='nav-item' to="/post-car">Host a Vehicle</Link>
                     </li>
+                    <li className="nav-item1">
+                        <Link className='nav-item1' to="/post-car">Add your car</Link>
+                    </li>
+                    <li className="nav-item1">
+                        <Link className='nav-item1' to="/view-cars">View Cars</Link>
+                    </li>
                 </ul>
             </div>
                 <div className="CAR">CarGo</div>

@@ -4,7 +4,8 @@ import axios from 'axios'
 export const getCars = async() => {
   let response = await axios.get('http://173.254.240.202:3000/car/')
   if(response.data.success) {
-    return response.data.data
+    const cars = response.data.data.map(car => ({ ...car, id: car._id }));
+    return cars
   } else {
     return {}
   }

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Image } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import Navbar from "../../global/navbar";
 import { getCars } from '../../API/cars';
 
+
 const ViewList = () => {
   const [cars, setCars] = useState([]);
   const [showAvailable, setShowAvailable] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch car data from the API
@@ -27,6 +30,11 @@ const ViewList = () => {
     }
     return cars;
   };
+
+  const handleViewDetails = (id) => {
+    navigate(`/car/${id}`);
+  };
+
   // columns for table
   const columns = [
     {
@@ -84,18 +92,30 @@ const ViewList = () => {
         key: 'features',
     },
     {
-        title: 'Booked',
-        dataIndex: 'booked',
-        key: 'booked',
-        render:(text)=>{
-            const map = {
-                0 : "Not Booked",
-                1 : "Booked"
-            }
-            return map[text];
-        }
+      title: 'Booked',
+      dataIndex: 'booked',
+      key: 'booked',
+      render: (text, record) => (
+        <>
+          {text === 0 ? 'Not Booked' : 'Booked'}
+        </>
+      ),
     },
-];
+    {
+      title: 'Actions',
+      dataIndex: 'actions',
+      key: 'actions',
+      render: (text, record) => (
+        <Button
+          variant="contained"
+          onClick={() => handleViewDetails(record._id)}
+          style={{ marginLeft: '0.5rem' }}
+        >
+          View Details
+        </Button>
+      ),
+    },
+  ];
 
 return (
     <div>
