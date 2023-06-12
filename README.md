@@ -144,5 +144,5 @@ The directories are formatted as followed:
 * Database - Carl Che
 
 ## Partial Presentation Video
-Admin Panel & Database (Carl Che)
+Admin Panel & Database (Carl Che, aka ThePureCC)
 https://v.sinogamer.com/CS110FinalProjectCarlChe.mp4
