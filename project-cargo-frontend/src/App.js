@@ -10,7 +10,7 @@ import { Register} from './Register/Register';
 import PostCar from './Pages/postCar/PostCar';
 import ViewList from './Pages/viewList/ViewList';
 import CarDetails from './Pages/carDetails/CarDetails';
-
+import { ViewUsers } from './Home/ViewUsers';
 function App() {
     return (
         <div>
@@ -23,6 +23,7 @@ function App() {
                     <Route path="/register" element={<Register/>} />
                     <Route path="/post-car" element={<PostCar />} />
                     <Route path="/view-cars" element={<ViewList />} />
+                    <Route path="/users" element={<ViewUsers />} />
                     <Route path="/car/:_id" element={<CarDetails />} />
                     {/* <Route path="/login" component={Login} /> */}
                 </Routes>

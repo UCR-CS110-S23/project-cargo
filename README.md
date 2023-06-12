@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/w5ovOekq)
 # Cargo
 
 ## Getting started
@@ -144,5 +145,5 @@ The directories are formatted as followed:
 * Database - Carl Che
 
 ## Partial Presentation Video
-Admin Panel & Database (Carl Che)
+Admin Panel & Database (Carl Che, aka ThePureCC)
 https://v.sinogamer.com/CS110FinalProjectCarlChe.mp4

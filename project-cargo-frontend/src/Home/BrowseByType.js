@@ -44,7 +44,7 @@ export const BrowseByType = () => {
                   location.state.engineType === car.engineType &&
                   <div key={index} style={style.products}>
                     <p style={{fontWeight: 'bold', fontSize:'24px'}}>{car.model}</p>
-                    <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => {navigate('../make/book', {"state": car})}} src={car.carProfileURL} alt='Toyota Logo'/></div>
+                    <div style={style.homeImageContainer}><img style={style.homeImage} onClick={() => {navigate('../make/book', {"state": car})}} src={car.carProfileURL} alt='Car'/></div>
                   </div>
                 )
               })}

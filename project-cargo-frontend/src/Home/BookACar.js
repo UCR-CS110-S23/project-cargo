@@ -237,20 +237,20 @@ export const BookACar = () => {
       <Navbar/>
       <div style={style.productsContainer}>
         <div style={style.products}>
-          <div style={style.ImageContainer}><img style={style.Image} src={location.state.carProfileURL} alt='Toyota Logo'/></div>
+          <div style={style.ImageContainer}><img style={style.Image} src={location.state.carProfileURL} alt='car pic'/></div>
             <div style={{display: 'flex', flexDirection: 'row'}}>
             <form onSubmit={handleSubmit} style={style.form}>
             <div style={style.but}>
               <h2 style={{color:'black'}}>Want to Book this Car?</h2>
               <label>
-                <div>Start Date</div> 
+                <div style={{color: '#333333'}}>Start Date</div> 
                 <input type="text" value={date} onChange={setDateHandler} placeholder='MM/DD/YYYY' style={{boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",padding: "10px",border: "1px solid #CCCCCC",borderRadius: "5px",}}/>       
               </label>
             </div>
             <div style={style.but}>
               <label>
-                <div>Length of Booking(Days)</div> 
-                <input type="text" value={length} onChange={setLengthHandler} placeholder='Length of Booking' style={{boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",padding: "10px",border: "1px solid #CCCCCC",borderRadius: "5px",}}/>       
+                <div style={{color: '#333333'}}>Length of Booking(Days)</div> 
+                <input type="text" value={length} onChange={setLengthHandler} placeholder='Length of Booking(Days)' style={{boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",padding: "10px",border: "1px solid #CCCCCC",borderRadius: "5px",}}/>       
               </label>
             </div>
             <div style={style.but}>
