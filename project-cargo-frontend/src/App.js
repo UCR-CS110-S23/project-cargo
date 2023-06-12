@@ -7,6 +7,8 @@ import { BrowseByMake } from './Home/BrowseByMake';
 import { BookACar } from './Home/BookACar';
 import { BrowseByType } from './Home/BrowseByType';
 import { Register} from './Register/Register';
+import PostCar from './Pages/postCar/PostCar';
+import ViewList from './Pages/viewList/ViewList';
 
 function App() {
     return (
@@ -18,6 +20,8 @@ function App() {
                     <Route path="make/book" element={<BookACar />} />
                     <Route path="type" element={<BrowseByType />} />
                     <Route path="/register" element={<Register/>} />
+                    <Route path="/post-car" element={<PostCar />} />
+                    <Route path="/view-cars" element={<ViewList />} />
                     {/* <Route path="/login" component={Login} /> */}
                 </Routes>
             </Router>

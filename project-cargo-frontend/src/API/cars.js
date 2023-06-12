@@ -60,3 +60,12 @@ export const postComment = async(uid, cid, comment, rating) => {
     return{}
   }
 }
+
+export const addCar = async (carData) => {
+  let response = await axios.post('http://173.254.240.202:3000/car/', carData);
+  if (response.data.success) {
+    return response.data.data;
+  } else {
+    return {};
+  }
+};
