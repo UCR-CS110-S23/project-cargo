@@ -34,9 +34,10 @@ pm2 start bin/www --name cargo-admin -f
 - Password: 
 - Database name: cargo
 
-## Admin Panel Online Demo
-### Please don't act maliciously on the page. 
-http://173.254.240.202:3000/
+## Live Demo
+### Please don't abuse it.
+User pages: http://173.254.240.202:3001/
+Admin Panel: http://173.254.240.202:3000/
 
 
 ## Back-end API
