@@ -1,7 +1,12 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/w5ovOekq)
 # Cargo
+Cargo is a web application that allows users to rent out their cars,
+similar to Airbnb. There are two types of users - renters and hosts.
+All users are renters, but not all users are hosts. In order to be a 
+host you must add your own car to be available for rent. Users can leave
+comments and a rating (1-5 stars) on cars that are owned by other users. 
 
-## Getting started
+## Features
 
 ### Running admin panel
 Inside front-end root dir, run
@@ -31,12 +36,12 @@ pm2 start bin/www --name cargo-admin -f
 - Host: 173.254.240.202
 - Port: 27017
 - Username: cargo
-- Password: 
+- Password: (omitted for obvious reasons)
 - Database name: cargo
 
 ## Live Demo
-### Please don't abuse it.
-* User pages: http://173.254.240.202:3001/
+### Please do not act with any malicious intent. 
+* Website: http://173.254.240.202:3001/
 * Admin Panel: http://173.254.240.202:3000/
 
 
@@ -119,7 +124,7 @@ password: String
 email : String
 joinDate: String // 05/20/2023
 ```
-## Front-End
+## FrontEnd
 Inside the project-cargo-frontend folder run
 ```sh
 npm i
@@ -133,7 +138,12 @@ The directories are formatted as followed:
 * ../src/API/: contains file consisting of all API used to communicate with the backend 
 * ../src/global/: contains the navbar that is used throughout the whole website
 * ../src/Home/: contains the website's various pages
+* ../src/Pages/: contains pages for car details, a complete list of all cars and page for
+posting a car 
+* ../
 * ../src/App.js: contains all of the necessary routing for the website.
+Screenshots: 
+
 ## Division of Labor
 * Home - Aarav Patel
 * Login - Jenhua Chang 
@@ -145,6 +155,6 @@ The directories are formatted as followed:
 * Admin panel(user/order/car/comment)  - Carl Che
 * Database - Carl Che
 
-## Partial Presentation Video
+## Partial Presentation Video (Will be updated to full video)
 Admin Panel & Database (Carl Che, aka ThePureCC)
 https://v.sinogamer.com/CS110FinalProjectCarlChe.mp4
