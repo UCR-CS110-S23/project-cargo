@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Image } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import Navbar from "../../global/navbar";
 import { getCars } from '../../API/cars';
@@ -12,18 +12,11 @@ const ViewList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch car data from the API
-    const fetchCars = async () => {
-      try {
-        const carData = await getCars();
-        setCars(carData);
-      } catch (error) {
-        console.error('Error fetching car data:', error);
-      }
-    };
+    getCars().then((response) => {
+      setCars(response)
+    })
+  }, [cars])
 
-    fetchCars();
-  }, []);
   const filterAvailableCars = () => {
     if (showAvailable) {
       return cars.filter((car) => car.booked === 0);
@@ -31,8 +24,8 @@ const ViewList = () => {
     return cars;
   };
 
-  const handleViewDetails = (id) => {
-    navigate(`/car/${id}`);
+  const handleViewDetails = (id, record) => {
+    navigate(`/car/${id}`, {"state":{carDetails: record}});
   };
 
   // columns for table
@@ -108,7 +101,7 @@ const ViewList = () => {
       render: (text, record) => (
         <Button
           variant="contained"
-          onClick={() => handleViewDetails(record._id)}
+          onClick={() => handleViewDetails(record._id, record)}
           style={{ marginLeft: '0.5rem' }}
         >
           View Details
