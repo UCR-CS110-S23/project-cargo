@@ -143,8 +143,8 @@ posting a car
 * ../src/App.js: contains all of the necessary routing for the website.
 Screenshots: 
 ![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/caadbc8a-7d00-48e1-996d-ef47d2eac389)
-![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/44b3e10f-b7e2-4eb1-8671-b95e559605c1)
-![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/9fe1aa56-b3f0-4de3-b976-d102bdf88b62)
+![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/d67ea159-4265-4c01-af0a-e746f52253ce)
+![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/4dd18bc8-1ef2-4784-8686-7ca455795941)
 
 ## Division of Labor
 * Home - Aarav Patel
