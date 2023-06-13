@@ -141,7 +141,7 @@ The directories are formatted as followed:
 * ../src/Pages/: contains pages for car details, a complete list of all cars and page for
 posting a car 
 * ../src/App.js: contains all of the necessary routing for the website.
-Screenshots: 
+* Screenshots: 
 ![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/caadbc8a-7d00-48e1-996d-ef47d2eac389)
 ![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/d67ea159-4265-4c01-af0a-e746f52253ce)
 ![image](https://github.com/UCR-CS110-S23/project-cargo/assets/85713004/4dd18bc8-1ef2-4784-8686-7ca455795941)
